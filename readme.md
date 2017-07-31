@@ -170,3 +170,19 @@ Thymeleaf should automatically replace all `<` and `>` symbols with their html-e
 This is super important from security point of view: if random people can add html to your page, then they can also add javascript code and bad things will happen.
 If you really need to add html to the template, then use `th:utext`, but be very careful!
 
+## Note about ModelAndView
+
+What does Model and View mean?
+It's rather common to split web applications into three components:
+
+* models are classes that represents your data (forum threads, user account, orders, bills, etc)
+* views are the html templates that render some part of the model to the browser
+* controllers are the classes that accept requests, change the model objects and choose the right view
+
+The critical part here is that the model classes should know nothing about the controllers and views.
+Similarly, the views should know nothing about the controller logic, nor should they ever change a model object.
+Views only render the objects that are passed to them.
+Finally, controllers know about how to change the model objects, but not how to render them to the browser.
+
+Such split is called the MVC (Model-View-Controller) pattern and its purpose is to make the code more maintainable.
+Note that MVC is just one option for organizing your application.
