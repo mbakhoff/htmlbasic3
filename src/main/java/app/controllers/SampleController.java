@@ -12,11 +12,11 @@ public class SampleController {
 
   @RequestMapping(value = "/sample", method = RequestMethod.GET)
   public void doGet(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-    resp.getWriter().write("GET /");
+    resp.getWriter().write("GET /sample");
   }
 
   @RequestMapping(value = "/sample", method = RequestMethod.POST)
   public void doPost(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-    resp.getWriter().write("POST /");
+    resp.getWriter().write("POST /sample");
   }
 }
