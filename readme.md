@@ -76,6 +76,21 @@ See the [Spring docs](https://docs.spring.io/spring/docs/current/spring-framewor
 
 Replace all wildcard mappings in your code with `@PathVariable`.
 
+## Use `redirect:`
+
+The *Location* header with the 3xx status code can be used to redirect the browser to another page.
+Setting the header and status manually is a lot of work.
+In Spring, you can redirect more easily:
+
+```java
+@RequestMapping("/this/page")
+public String redirected(HttpServletRequest req) {
+  return "redirect:/other/page";
+}
+```
+
+Update your controllers to use Spring redirect.
+
 ## Use templates instead of html strings
 
 Currently you likely use code like this:
