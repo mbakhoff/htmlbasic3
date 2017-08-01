@@ -1,6 +1,6 @@
 # Web application with Spring
 
-In the last tutorial we build a simple forum application using java servlet api.
+In the last tutorial we built a simple forum application using the java servlet api.
 The servlet api provided us with the `HttpServlet`, `HttpServletRequest` and `HttpServletResponse` classes.
 It was enough to build a basic webapp, but there were some downsides:
 
@@ -26,7 +26,7 @@ Follow these steps to migrate the code to *Spring*:
 
 ### Spring controllers
 
-In servlet api, the class that was handing the requests was called a *servlet*.
+In the servlet api, the class that was handing the requests was called a *servlet*.
 In Spring, the classes are called *controllers*.
 
 To make your servlets Spring friendly, follow these steps:
@@ -43,7 +43,7 @@ To make your servlets Spring friendly, follow these steps:
 Note that the `doGet` and `doPost` methods no longer implement any interface methods.
 When the server is starting up, Spring will look for any classes with the `@Controller` annotation.
 From these classes, Spring will look for any methods with the `@RequestMapping` annotations (the methods are called *request handlers*).
-When the server receives a request, Spring will go through all methods it found earlier:
+When the server receives a request, Spring will go through all the methods it found earlier:
 
 * if the Request-URI matches any request handler, then Spring will call that method
 * if no methods match, then Spring will try to find a file with a matching name (it will search the /public folder in the classpath).
@@ -70,7 +70,7 @@ This is rather clumsy and Spring agrees.
 You should have a request handler with `@RequestMapping(value = "/threads/*")`.
 Replace it with `@RequestMapping(value = "/threads/{threadName}")`.
 The curly braces indicate to Spring that this is a variable.
-Next, add a new parameter to the method: `@PathVariable String threadName` (yes, the parameter itself is annotated).
+Next, add a new parameter to the method: `@PathVariable String threadName` (the parameter itself is annotated).
 As long as the parameter name matches the variable in the RequestMapping, Spring can match them and automatically provide the parameter value.
 See the [Spring docs](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-uri-templates) if needed.
 
@@ -199,5 +199,5 @@ Similarly, the views should know nothing about the controller logic, nor should 
 Views only render the objects that are passed to them.
 Finally, controllers know about how to change the model objects, but not how to render them to the browser.
 
-Such split is called the MVC (Model-View-Controller) pattern and its purpose is to make the code more maintainable.
-Note that MVC is just one option for organizing your application.
+Such a split is called the MVC (Model-View-Controller) pattern and its purpose is to make the code more maintainable.
+Note that MVC is just one (and not always the best) option for organizing your application.
