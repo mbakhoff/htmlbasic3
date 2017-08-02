@@ -74,7 +74,7 @@ Next, add a new parameter to the method: `@PathVariable String threadName` (the 
 As long as the parameter name matches the variable in the RequestMapping, Spring can match them and automatically provide the parameter value.
 See the [Spring docs](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-uri-templates) if needed.
 
-Replace all wildcard mappings in your code with `@PathVariable`.
+Change your code to use `@PathVariable` where appropriate.
 
 ## Use `redirect:`
 
